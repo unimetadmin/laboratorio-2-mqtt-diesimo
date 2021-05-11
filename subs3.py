@@ -40,9 +40,9 @@ def subida(aux,param,alert):
             time=str(time)
             print(time)
             print(alert)
-            insert_query_alert="""INSERT INTO mensaje(mensaje,id_habi,time) VALUES (%s, %s,%s)"""
+            insert_query_alert="""INSERT INTO mensaje(mensaje,id_habi,time,id_instr) VALUES (%s, %s,%s,%s)"""
             
-            to_insert2=(alert,2,time)
+            to_insert2=(alert,3,time,1)
             cursor.execute(insert_query_alert,to_insert2)
 
         connection.commit()

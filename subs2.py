@@ -43,11 +43,14 @@ def subida(aux,param,alert):
             time=str(time)
             print(time)
             print(alert)
-            insert_query_alert="""INSERT INTO mensaje(mensaje,id_habi,time) VALUES (%s, %s,%s)"""
-            
-            to_insert2=(alert,2,time)
-            cursor.execute(insert_query_alert,to_insert2)
+            insert_query_alert="""INSERT INTO mensaje(mensaje,id_habi,time,id_instr) VALUES (%s, %s,%s,%s)"""
+            if(aux=='persona'):
+                to_insert2=(alert,2,time,1)
+                
+            else:
+                to_insert2=(alert,2,time,2)
 
+            cursor.execute(insert_query_alert,to_insert2)
         connection.commit()
         count=cursor.rowcount
         cursor.execute("SELECT * from nevera")
