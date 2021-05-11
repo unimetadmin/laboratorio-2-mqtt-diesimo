@@ -74,14 +74,14 @@ def subida(aux,param,alert):
 
 
 def on_connect(client,userdata,flags,rc):
-    print('connected (%s)' % client._client_id)
+   
     client.subscribe(topic='casa/cocina/#', qos=2)
     
 
 
 def on_message(client,userdata,message):
     print('-----------------------------')
-    print('topic: %s' % message.topic)
+    
     if(message.topic =='casa/cocina/nevera'):
         print('--NEVERA--')
         #EXTRAIGO LA INFORMACION QUE RECIBE PARA CONVERTIRLA EN JSON
